@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="wall">
+        <div class="container">
+            <div class="p-4">
+                <h1 class="text-center">My tool</h1>
+                <h6 class="text-center">Welcome to predict price house in HCM city tool</h6>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-8 col-lg-9">
+                    <h4>Tool</h4>
+                    <div class="bg-white px-5 py-3 input-gr">
+                        <form class="row g-3">
+                            <div class="col-6 my-3">
+                                <label for="inputLocation" class="form-label">Location</label>
+                                <select class="form-select" aria-label="Default select example" id="inputLocation">
+                                    <option value="0">Bình Chánh</option>
+                                    <option value="1">Cần Giờ</option>
+                                    <option value="2">Củ Chi</option>
+                                    <option value="3">Hốc Môn</option>
+                                    <option value="4">Nhà Bè</option>
+                                    <option value="5">Quận 1</option>
+                                    <option value="6">Quận 10</option>
+                                    <option value="7">Quận 11</option>
+                                    <option value="8">Quận 12</option>
+                                    <option value="9">Quận 3</option>
+                                    <option value="10">Quận 4</option>
+                                    <option value="11">Quận 5</option>
+                                    <option value="12">Quận 6</option>
+                                    <option value="13">Quận 7</option>
+                                    <option value="14">Quận 8</option>
+                                    <option value="15">Bình Thạnh</option>
+                                    <option value="16">Bình Tân</option>
+                                    <option value="17">Gò Vấp</option>
+                                    <option value="18">Phú Nhuận</option>
+                                    <option value="19">Tân Bình</option>
+                                    <option value="20">Tân Phú</option>
+                                    <option value="21">Tp.Thủ Đức</option>
+                                </select>
+                            </div>
+                            <div class="col-6 my-3">
+                                <label for="inputTypeH" class="form-label">Type house</label>
+                                <select class="form-select" aria-label="Default select example" id="inputTypeH">
+                                    <option value="0">Nhà biệt thự</option>
+                                    <option value="4">Phố liền kề</option>
+                                    <option value="2">Nhà mặt phố</option>
+                                    <option value="3">Nhà ngõ</option>
+                                    <option value="1">Khác</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 my-3">
+                                <label for="inputArea" class="form-label">Area</label>
+                                <input type="number" class="form-control" value="0" id="inputArea"
+                                    placeholder="1, 2,...">
+                            </div>
+                            <div class="col-md-4 my-3">
+                                <label for="inputWidth" class="form-label">Width</label>
+                                <input type="number" class="form-control" value="0" id="inputWidth"
+                                    placeholder="1, 2,...">
+                            </div>
+                            <div class="col-md-4 my-3">
+                                <label for="inputLength" class="form-label">Length</label>
+                                <input type="number" class="form-control" value="0" id="inputLength"
+                                    placeholder="1, 2,...">
+                            </div>
+                            <div class="col-md-4 my-3">
+                                <label for="inputBedroom" class="form-label">Bedroom</label>
+                                <input type="number" class="form-control" value="0" id="inputBedroom"
+                                    placeholder="1, 2,...">
+                            </div>
+                            <div class="col-md-4 my-3">
+                                <label for="inputWC" class="form-label">WC</label>
+                                <input type="number" class="form-control" value="0" id="inputWC" placeholder="1, 2,...">
+                            </div>
+                            <div class="col-md-4 my-3">
+                                <label for="inputFloor" class="form-label">Floor</label>
+                                <input type="number" class="form-control" value="0" id="inputFloor"
+                                    placeholder="1, 2,...">
+                            </div>
+
+                            <div class="col-6 my-3">
+                                <button type="button" class="btn btn-outline-primary" id="btn-predict">predict</button>
+                            </div>
+                            <div class="col-6 my-3 text-danger">
+                                Result: <b id="result">0</b>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-3">
+                    <h4>Author</h4>
+                    <div id="carouselExampleCaptions" class="carousel slide author" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                        </div>
+                        <div class="carousel-inner">
+
+                            <div class="carousel-item active">
+                                <img src="{{url_for('static', filename='images/avt2.jpg')}}" class="d-block w-100"
+                                    alt="..." height="400">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>51800256</h5>
+                                    <p>Trần Vĩnh Trung</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{url_for('static', filename='images/avt1.jpg')}}" class="d-block w-100"
+                                    alt="..." height="400">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Phan Xuân Thứ</h5>
+                                    <p>51800934</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+            </symbol>
+            <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+            </symbol>
+            <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                    d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+            </symbol>
+        </svg>
+
+        <div class="alert alert-warning d-flex align-items-center w-75 m-auto mt-5" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
+                <use xlink:href="#exclamation-triangle-fill" />
+            </svg>
+            <div>
+                This is a project of our team, please do not copy in any form.
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    let btn_predict = document.getElementById('btn-predict')
+    btn_predict.addEventListener('click', () => {
+        let inputLocation = parseFloat(document.getElementById('inputLocation').value)
+        let inputTypeH = parseFloat(document.getElementById('inputTypeH').value)
+        let inputArea = parseFloat(document.getElementById('inputArea').value)
+        let inputWidth = parseFloat(document.getElementById('inputWidth').value)
+        let inputLength = parseFloat(document.getElementById('inputLength').value)
+        let inputBedroom = parseFloat(document.getElementById('inputBedroom').value)
+        let inputFloor = parseFloat(document.getElementById('inputFloor').value)
+        let inputWC = parseFloat(document.getElementById('inputWC').value)
+
+        console.log(typeof (inputBedroom))
+
+        fetch('/predict', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                input: [
+                    inputLocation,
+                    inputArea,
+                    inputWidth,
+                    inputLength,
+                    inputBedroom,
+                    inputWC,
+                    inputFloor,
+                    inputTypeH
+                ]
+            })
+        })
+            .then(data => data.json())
+            .then(data => {
+                let result = document.getElementById('result')
+                result.innerHTML = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(data.price)
+            })
+            .catch(err => console.log(err))
+    })
+
+</script>
+
+</html>

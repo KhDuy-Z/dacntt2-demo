@@ -1,0 +1,36 @@
+/* 
+    ---------------------
+    BASE
+    ---------------------
+*/
+* {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+}
+
+/*
+    -------------------
+    CODE
+    -------------------
+*/
+
+.wall {
+    background-color: #e5e5e5;
+    height: 100vh;
+}
+
+.input-gr,
+.author {
+    border: solid rgb(187, 187, 187) 1px;
+    box-shadow: #bababa -5px 5px 10px 5px;
+}
